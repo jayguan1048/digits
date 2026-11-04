@@ -3,7 +3,7 @@
 // import { Stuff } from '@prisma/client';
 // import Link from 'next/link';
 import Card from 'react-bootstrap/Card';
-import { Contact } from '@/lib/validationSchemas';
+import { Contact } from '@prisma/client';
 
 function ContactCard({ contact }: { contact: Contact }) {
   return (
