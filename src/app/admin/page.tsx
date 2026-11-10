@@ -1,5 +1,4 @@
 import { Col, Container, Row } from 'react-bootstrap';
-// import StuffItemAdmin from '@/components/StuffItemAdmin';
 import ContactCard from '@/components/ContactCardAdmin';
 import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
@@ -12,10 +11,8 @@ const AdminPage = async () => {
       user: { email: string; id: string; name: string };
     } | null,
   );
-  // const stuff = await prisma.stuff.findMany({});
-  // const users = await prisma.user.findMany({});
   const contacts = await prisma.contact.findMany({});
-
+  const notes = await prisma.note.findMany({});
   return (
     <main>
       <Container id="list" fluid className="py-3">
@@ -25,33 +22,14 @@ const AdminPage = async () => {
             <Row xs={1} md={2} lg={3} className="g-4">
               {contacts.map((contact) => (
                 <Col key={contact.firstName}>
-                  <ContactCard contact={contact} />
+                  <ContactCard key={contact.id}
+                          contact={contact}
+                          notes={notes.filter(note => (note.contactId === contact.id))}/>
                 </Col>
               ))}
             </Row>
           </Col>
         </Row>
-        {/* <Row>
-          <Col>
-            <h1>List Users Admin</h1>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Email</th>
-                  <th>Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr key={user.id}>
-                    <td>{user.email}</td>
-                    <td>{user.role}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </Col>
-        </Row> */}
       </Container>
     </main>
   );

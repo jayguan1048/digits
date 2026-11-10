@@ -1,6 +1,4 @@
 import { Col, Container, Row } from 'react-bootstrap';
-// import { prisma } from '@/lib/prisma';
-// import StuffItem from '@/components/StuffItem';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
@@ -16,12 +14,6 @@ const ListPage = async () => {
     } | null,
   );
   const owner = (session && session.user && session.user.email) || '';
-  // const stuff = await prisma.stuff.findMany({
-  //   where: {
-  //     owner,
-  //   },
-  // });
-  // console.log(stuff);
   const contacts = await prisma.contact.findMany({
     where: {
       owner,

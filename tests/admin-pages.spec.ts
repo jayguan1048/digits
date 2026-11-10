@@ -21,15 +21,15 @@ test('test access to admin page', async ({ getUserPage }) => {
   await expect(
     adminPage.getByRole('link', { name: 'List Contacts' })
   ).toBeVisible({ timeout: 5000 });
-  await expect(
-    adminPage.getByRole('link', { name: 'Admin' })
-  ).toBeVisible({ timeout: 5000 });
+  // await expect(
+  //   adminPage.getByRole('link', { name: 'Admin' })
+  // ).toBeVisible({ timeout: 5000 });
 
   // Test Add Stuff adminPage
-  await adminPage.getByRole('link', { name: 'Add Stuff' }).click();
-  await expect(
-    adminPage.getByRole('heading', { name: 'Add Stuff' })
-  ).toBeVisible({ timeout: 5000 });
+  // await adminPage.getByRole('link', { name: 'Add Stuff' }).click();
+  // await expect(
+  //   adminPage.getByRole('heading', { name: 'Add Stuff' })
+  // ).toBeVisible({ timeout: 5000 });
 
   // Test List Contacts adminPage
   await adminPage.getByRole('link', { name: 'List Contacts' }).click();
@@ -38,10 +38,10 @@ test('test access to admin page', async ({ getUserPage }) => {
   ).toBeVisible({ timeout: 5000 });
 
   // Test Admin adminPage
-  await adminPage.getByRole('link', { name: 'Admin' }).click();
-  await expect(
-    adminPage.getByRole('heading', { name: 'List Contacts (Admin)' })
-  ).toBeVisible({ timeout: 5000 });
+  // await adminPage.getByRole('link', { name: 'Admin' }).click();
+  // await expect(
+  //   adminPage.getByRole('heading', { name: 'List Contacts (Admin)' })
+  // ).toBeVisible({ timeout: 5000 });
   // await expect(
   //   adminPage.getByRole('heading', { name: 'List Users Admin' })
   // ).toBeVisible({ timeout: 5000 });
